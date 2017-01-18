@@ -1,6 +1,7 @@
 package com.booboomx.gank.api;
 
 import com.booboomx.gank.bean.NewsTimeLineBean;
+import com.booboomx.gank.bean.ZhiHuDetailBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -24,8 +25,9 @@ public interface ZhiHuApi {
     Observable<NewsTimeLineBean>getBeforeNews(@Path("time")String time);
 
 
-//    @GET("news/{id}")
-//    Observable<News>getDetailNews(@Path("id")String id);
+    // http://news-at.zhihu.com/api/4/news/9157157
+    @GET("news/{id}")
+    Observable<ZhiHuDetailBean>getDetailNews(@Path("id")String id);
 
 
 

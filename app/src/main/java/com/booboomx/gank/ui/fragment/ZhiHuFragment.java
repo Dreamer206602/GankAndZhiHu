@@ -1,6 +1,7 @@
 package com.booboomx.gank.ui.fragment;
 
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.booboomx.gank.R;
 import com.booboomx.gank.api.ApiFactory;
 import com.booboomx.gank.bean.NewsTimeLineBean;
+import com.booboomx.gank.ui.activity.ZhiHuDetailActivity;
 import com.booboomx.gank.ui.adapter.NetworkImageHolderView;
 import com.booboomx.gank.ui.adapter.ZhiHuAdapter;
 import com.booboomx.gank.ui.base.BaseFragment;
@@ -43,13 +45,12 @@ public class ZhiHuFragment extends BaseFragment implements BaseQuickAdapter.Requ
     @Bind(R.id.recyclerView)
     RecyclerView mRecyclerView;
     private ZhiHuAdapter mAdapter;
-   public   String date;
+    public   String date;
 
     private ConvenientBanner mBanner;
     private TextView mTvTopTitle;
     private List<String>urls=new ArrayList<>();
     private ArrayList<NewsTimeLineBean.StoriesBean>mStoriesBeen=new ArrayList<>();
-
     @Override
     public int getFragmentLayoutId() {
         return R.layout.fragment_zhi_hu;
@@ -83,7 +84,7 @@ public class ZhiHuFragment extends BaseFragment implements BaseQuickAdapter.Requ
 
     }
 
-    private void getZhiHuData(List<NewsTimeLineBean.StoriesBean> stories, String time, List<NewsTimeLineBean.TopStoriesBean> top_stories) {
+    private void getZhiHuData(final List<NewsTimeLineBean.StoriesBean> stories, String time, List<NewsTimeLineBean.TopStoriesBean> top_stories) {
 
         date=time;
         mStoriesBeen.clear();
@@ -93,18 +94,17 @@ public class ZhiHuFragment extends BaseFragment implements BaseQuickAdapter.Requ
             mAdapter.addHeaderView(getHeadView());
             mRecyclerView.setAdapter(mAdapter);
         }
-
-
         mAdapter.setOnLoadMoreListener(this);
-//        mRecyclerView.addOnItemTouchListener(new OnItemChildClickListener() {
-//            @Override
-//            public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-//            }
-//        });
 
         mRecyclerView.addOnItemTouchListener(new SimpleClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+                Intent intent=new Intent();
+                intent.putExtra("id",stories.get(position).getId()+"");
+                intent.setClass(getContext(), ZhiHuDetailActivity.class);
+                startActivity(intent);
+
 
             }
 
