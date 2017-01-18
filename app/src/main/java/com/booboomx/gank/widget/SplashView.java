@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -46,8 +45,8 @@ public class SplashView  extends View{
     private Paint mPaint=new Paint();
 
     public static interface ISPlashListener{
-        public void onStart();
-        public void  onUpdate(float completionFraction);
+         void onStart();
+         void  onUpdate(float completionFraction);
         public void  onEnd();
     }
 
@@ -56,11 +55,11 @@ public class SplashView  extends View{
         this(context,null);
     }
 
-    public SplashView(Context context, @Nullable AttributeSet attrs) {
+    public SplashView(Context context,  AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public SplashView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SplashView(Context context,  AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize();
         setupAttributes(attrs);

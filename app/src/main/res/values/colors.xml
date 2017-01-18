@@ -4,5 +4,29 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="white">#ffffff</color>
+
+    <color name="gray">#767376</color>
+
+
+    <!--Splash-->
+    <color name="white">#FFFFFF</color>
+    <color name="gery">#FAFAFA</color>
+    <color name="darkgery">#797979</color>
+    <color name="trangery">#512e2e2e</color>
+    <color name="black">#252525</color>
+
+    <!--TabLayout-->
+    <color name="TabTextColor">#FFFFFF</color>
+    <color name="TabSelectColor">#FAFAFA</color>
+    <color name="TabIndicatorColor">#FFFFFF</color>
+
+    <!--RefreshLayout-->
+    <color name="refresh_progress_1">#536DFE</color>
+    <color name="refresh_progress_2">#f44336</color>
+    <color name="refresh_progress_3">#ff4081</color>
+
+
+
+
+
 </resources>
