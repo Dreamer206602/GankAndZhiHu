@@ -212,12 +212,9 @@ public class ZhiHuFragment extends BaseFragment implements BaseQuickAdapter.Requ
 
         mBanner= (ConvenientBanner) view.findViewById(R.id.banner);
         mTvTopTitle= (TextView) view.findViewById(R.id.tv_top_title);
-
-
         return view;
 
     }
-
 
     @Override
     public void onLoadMoreRequested() {

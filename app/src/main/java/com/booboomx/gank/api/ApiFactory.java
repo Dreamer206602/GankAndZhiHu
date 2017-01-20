@@ -7,6 +7,8 @@ package com.booboomx.gank.api;
 public class ApiFactory {
     public static final Object monitor = new Object();
     public static ZhiHuApi zhiHuApi = null;
+    public static GankApi gankApi = null;
+
 
     public static ZhiHuApi getZhiHuApi() {
         synchronized (monitor) {
@@ -14,6 +16,16 @@ public class ApiFactory {
                 zhiHuApi = new ApiRetrofit().getZhiHuApi();
             }
             return zhiHuApi;
+        }
+    }
+
+
+    public static GankApi getGankApi() {
+        synchronized (monitor) {
+            if (gankApi == null) {
+                gankApi = new ApiRetrofit().getGankApi();
+            }
+            return gankApi;
         }
     }
 }
